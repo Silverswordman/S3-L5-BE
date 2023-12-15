@@ -27,3 +27,7 @@ j
 :src/main/java/giuliasilvestrini/DAO/ElementoBiblioDAO.java,3\1\31be3e93301047b0495d29cb9d28af6d26e51a7b
 d
 4src/main/java/giuliasilvestrini/DAO/PrestitoDAO.java,0\2\022438d631c956e494b955dc37f978df172383ea
+a
+1src/main/java/giuliasilvestrini/DAO/LibroDAO.java,8\a\8acf2aee602d9f68041b3384be6ae835bcd53bcd
+c
+3src/main/java/giuliasilvestrini/DAO/RivistaDAO.java,c\5\c5a8f8d559ac5715a06843361b6a46cac23f5a26

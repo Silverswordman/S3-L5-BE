@@ -1,6 +1,8 @@
 package giuliasilvestrini.DAO;
 
 import giuliasilvestrini.entities.ElementoBiblio;
+import giuliasilvestrini.entities.Libro;
+import giuliasilvestrini.entities.Rivista;
 
 
 import javax.persistence.EntityManager;
@@ -8,11 +10,11 @@ import javax.persistence.EntityTransaction;
 import java.util.UUID;
 
 
-public class ElementoBiblioDAO {
+public class RivistaDAO {
 
     private final EntityManager em;//
 
-    public ElementoBiblioDAO(EntityManager em) {
+    public RivistaDAO(EntityManager em) {
         this.em = em;
     }
 
@@ -22,11 +24,11 @@ public class ElementoBiblioDAO {
         transaction.begin();
         em.persist(elementoBiblio);
         transaction.commit();
-        System.out.println("Nuovo elemento Libro/Rivista  " + elementoBiblio.getIsbn() + " " + elementoBiblio.getTitolo() + " inserito nel catalogo");
+        System.out.println("Nuovo elemento Rivista " + Rivista.getIsbn() + " " + Rivista.getTitolo() + " inserito nel catalogo");
     }
 
-    public ElementoBiblio findbyIsbn(UUID isbn) {
-        return em.find(ElementoBiblio.class, isbn);
+    public Libro findbyIsbn(UUID isbn) {
+        return em.find(Libro.class, isbn);
     }
 
 }

@@ -12,10 +12,10 @@ public class ElementoBiblio {
     @Id
     @GeneratedValue
     @Column(name = "isbn", unique = true, nullable = false)
-    private UUID isbn;
+    private static UUID isbn;
 
     @Column(name = "titolo")
-    private String titolo;
+    private static String titolo;
 
     @Column(name = "anno_pubblicazione")
     private LocalDate annoPubblicazione;
@@ -29,18 +29,18 @@ public class ElementoBiblio {
 
 
     public ElementoBiblio(UUID isbn, String titolo, LocalDate annoPubblicazione, int pagine) {
-        this.isbn = UUID.randomUUID();
+        this.isbn = isbn;
         this.titolo = titolo;
         this.annoPubblicazione = annoPubblicazione;
         this.pagine = pagine;
     }
 
     // Getter e setter
-    public UUID getIsbn() {
+    public static UUID getIsbn() {
         return isbn;
     }
 
-    public String getTitolo() {
+    public static String getTitolo() {
         return titolo;
     }
 
