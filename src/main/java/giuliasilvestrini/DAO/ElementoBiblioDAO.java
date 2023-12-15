@@ -22,13 +22,31 @@ public class ElementoBiblioDAO {
         transaction.begin();
         em.merge(elementoBiblio);
         transaction.commit();
-        System.out.println("Nuovo elemento Libro/Rivista " +elementoBiblio.getTitolo()+  " inserito nel catalogo");
+        System.out.println("Nuovo elemento Libro/Rivista " + elementoBiblio.getTitolo() + " inserito nel catalogo");
     }
 
-//    public Event findById(long id) {
-//        return (Event)this.em.find(Event.class, id);
-//    }
+    public ElementoBiblio findById(UUID isbn) {
 
+        return (ElementoBiblio) this.em.find(ElementoBiblio.class, isbn);
+
+    }
+
+    public void findByIsbnAndDelete(UUID isbn) {
+        try {
+            EntityTransaction t = this.em.getTransaction();
+            ElementoBiblio found = (ElementoBiblio) this.em.find(ElementoBiblio.class, isbn);
+            if (found != null) {
+                t.begin();
+                this.em.remove(found);
+                t.commit();
+                System.out.println("Elemento Biblio eliminato");
+            } else {
+                System.out.println("Elemento Biblio non trovato");
+            }
+        } catch (Exception var5) {
+            System.out.println(var5.getMessage());
+        }
+
+    }
 
 }
-

@@ -23,22 +23,32 @@ public class Application {
 
         UUID uuid = UUID.randomUUID();
         Random random = new Random();
+
         Faker faker = new Faker(Locale.ITALY);
 
         ElementoBiblioDAO elemento = new ElementoBiblioDAO(em);
 
-
-        Libro libro = new Libro(uuid, faker.book().title(), LocalDate.now(), random.nextInt(1, 400), faker.book().author(), faker.book().genre());
-        Rivista rivista = new Rivista(uuid, faker.book().title(), LocalDate.of(2000, random.nextInt(1, 12), random.nextInt(1, 29)), random.nextInt(1, 400), Periodicità.SEMESTRALE);
-        Rivista rivista1 = new Rivista(uuid, faker.book().title(), LocalDate.of(2000, random.nextInt(1, 12), random.nextInt(1, 29)), random.nextInt(1, 400), Periodicità.MENSILE);
-        Libro libro1 = new Libro(uuid, faker.book().title(), LocalDate.now(), random.nextInt(1, 400), faker.book().author(), faker.book().genre());
+//add libri e riviste
+        Libro libro = new Libro(uuid, faker.book().title(), LocalDate.of(random.nextInt(1990, 2023), random.nextInt(1, 12), random.nextInt(1, 29)), random.nextInt(1, 400), faker.book().author(), faker.book().genre());
+        Rivista rivista = new Rivista(uuid, faker.book().title(), LocalDate.of(random.nextInt(1990, 2023), random.nextInt(1, 12), random.nextInt(1, 29)), random.nextInt(1, 400), Periodicità.SEMESTRALE);
+        Rivista rivista1 = new Rivista(uuid, faker.book().title(), LocalDate.of(random.nextInt(1990, 2023), random.nextInt(1, 12), random.nextInt(1, 29)), random.nextInt(1, 400), Periodicità.MENSILE);
+        Libro libro1 = new Libro(uuid, faker.book().title(), LocalDate.of(random.nextInt(1990, 2023), random.nextInt(1, 12), random.nextInt(1, 29)), random.nextInt(1, 400), faker.book().author(), faker.book().genre());
 
 //        elemento.save(libro);
 //        elemento.save(rivista);
 //        elemento.save(libro1);
 //        elemento.save(rivista1);
 
-        System.out.println("Hello");
+        System.out.println("Hello it's working");
+
+// elemento find
+
+        System.out.println(elemento.findById(UUID.fromString("1b038782-e8cd-4de9-a77d-7adf5c6dfc71")));
+
+// delete
+
+        elemento.findByIsbnAndDelete(UUID.fromString("230ed599-52ae-4521-b708-709df5af6a5d"));
+        // lascio scommentato così dice che non trova l elemento
 
         em.close();
         emf.close();

@@ -2,6 +2,7 @@ package giuliasilvestrini.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,7 +18,7 @@ public class Utente {
     private LocalDate dataNascita;
 
     @OneToMany(mappedBy = "utente", cascade = CascadeType.ALL)
-    private List<Prestito> prestiti;
+    private List<Prestito> prestiti = new ArrayList<>();
 
     public Utente(long numeroTessera, List<Prestito> prestiti) {
         this.numeroTessera = numeroTessera;

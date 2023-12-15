@@ -72,12 +72,12 @@ public class ElementoBiblio {
 
     @Override
     public String toString() {
-        return "ElementoBiblio{" +
-                "isbn=" + isbn +
-                ", titolo='" + titolo + '\'' +
-                ", annoPubblicazione=" + annoPubblicazione +
-                ", pagine=" + pagine +
-                ", prestito=" + prestito +
+        return
+                "Codice isbn " + isbn +
+                " titolo " + titolo + '\'' +
+                ", Anno di Pubblicazione " + annoPubblicazione +
+                ", Pagine " + pagine +
+                ", Prestito " + prestito +
                 '}';
     }
 
