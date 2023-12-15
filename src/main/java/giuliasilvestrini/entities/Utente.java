@@ -16,7 +16,6 @@ public class Utente {
     @Column(name = "data_nascita", nullable = false)
     private LocalDate dataNascita;
 
-    // Relazione one-to-many con la classe Prestito
     @OneToMany(mappedBy = "utente", cascade = CascadeType.ALL)
     private List<Prestito> prestiti;
 
@@ -55,4 +54,3 @@ public class Utente {
         return numeroTessera;
     }
 }
-

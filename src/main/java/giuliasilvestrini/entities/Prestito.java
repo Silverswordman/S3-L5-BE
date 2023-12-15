@@ -1,5 +1,3 @@
-
-
 package giuliasilvestrini.entities;
 
 import javax.persistence.*;
@@ -11,9 +9,12 @@ public class Prestito {
     @GeneratedValue
     private long id;
 
+    @ManyToOne
+    @JoinColumn(name = "numero_tessera_utente", nullable = false)
+    private Utente utente;
 
-
-    @OneToOne(mappedBy = "prestito")
+    @OneToOne
+    @JoinColumn(name = "isbn_elemento", nullable = false)
     private ElementoBiblio elementobiblio;
 
     @Column(name = "data_inizio_prestito", nullable = false)
@@ -25,12 +26,17 @@ public class Prestito {
     @Column(name = "data_restituzione_effettiva", nullable = false)
     private LocalDate dateresteffettiva;
 
+
     // getter e setter
+    public long getUtente() {
+        return utente.getNumeroTessera();
+    }
 
 
     public ElementoBiblio getElementobiblio() {
         return elementobiblio;
     }
+
 
     public LocalDate getDatainizioprestito() {
         return datainizioprestito;
@@ -56,5 +62,4 @@ public class Prestito {
         this.dateresteffettiva = dateresteffettiva;
     }
 }
-
 

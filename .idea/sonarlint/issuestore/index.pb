@@ -21,3 +21,9 @@ d
 Q.idea/sonarlint/securityhotspotstore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec,2\c\2cabb939da04d3de3a200bf2b575690e1a16316d
 w
 G.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec,8\6\863e0292fd7e9b3e74dafd6cc01f73ba76346482
+b
+2src/main/java/giuliasilvestrini/DAO/UtenteDAO.java,0\d\0de2918a622c628fe506e7e1dbe1867c5049149d
+j
+:src/main/java/giuliasilvestrini/DAO/ElementoBiblioDAO.java,3\1\31be3e93301047b0495d29cb9d28af6d26e51a7b
+d
+4src/main/java/giuliasilvestrini/DAO/PrestitoDAO.java,0\2\022438d631c956e494b955dc37f978df172383ea

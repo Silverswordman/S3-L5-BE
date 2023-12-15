@@ -23,11 +23,13 @@ public class ElementoBiblio {
     @Column(name = "pagine")
     private int pagine;
 
-
+    @OneToOne
+    @JoinColumn(name = "isbn", nullable = false)
+    private Prestito prestito;
 
 
     public ElementoBiblio(UUID isbn, String titolo, LocalDate annoPubblicazione, int pagine) {
-        this.isbn = isbn;
+        this.isbn = UUID.randomUUID();
         this.titolo = titolo;
         this.annoPubblicazione = annoPubblicazione;
         this.pagine = pagine;
@@ -62,5 +64,7 @@ public class ElementoBiblio {
         this.pagine = pagine;
     }
 
-
+    public Prestito getPrestito() {
+        return prestito;
+    }
 }
