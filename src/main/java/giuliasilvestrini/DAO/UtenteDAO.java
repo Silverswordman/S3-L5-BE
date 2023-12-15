@@ -21,7 +21,7 @@ public class UtenteDAO {
         transaction.begin();
         em.persist(utente);
         transaction.commit();
-        System.out.println("NUovo utente inserito " + utente);
+        System.out.println("NUovo utente inserito " + utente.getNome());
 
     }
 }

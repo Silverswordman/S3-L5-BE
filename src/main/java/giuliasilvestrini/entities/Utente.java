@@ -20,9 +20,10 @@ public class Utente {
     @OneToMany(mappedBy = "utente", cascade = CascadeType.ALL)
     private List<Prestito> prestiti = new ArrayList<>();
 
-    public Utente(long numeroTessera, List<Prestito> prestiti) {
-        this.numeroTessera = numeroTessera;
-        this.prestiti = prestiti;
+    public Utente(String nome, String cognome, LocalDate dataNascita) {
+        this.nome = nome;
+        this.cognome = cognome;
+        this.dataNascita = dataNascita;
     }
 
 

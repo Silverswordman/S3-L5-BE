@@ -26,6 +26,14 @@ public class Prestito {
     @Column(name = "data_restituzione_effettiva", nullable = false)
     private LocalDate dateresteffettiva;
 
+    public Prestito(Utente utente, ElementoBiblio elementoBiblio, LocalDate datainizioprestito, LocalDate datarestprevista, LocalDate dateresteffettiva) {
+        this.utente = utente;
+        this.elementoBiblio = elementoBiblio;
+        this.datainizioprestito = datainizioprestito;
+        this.datarestprevista = datarestprevista;
+        this.dateresteffettiva = dateresteffettiva;
+    }
+
 
     // getter e setter
     public long getUtente() {

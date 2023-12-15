@@ -5,6 +5,8 @@ import giuliasilvestrini.entities.ElementoBiblio;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
+import java.util.List;
 import java.util.UUID;
 
 public class ElementoBiblioDAO {
@@ -49,4 +51,16 @@ public class ElementoBiblioDAO {
 
     }
 
+    public List<ElementoBiblio> findByAnnoPubblicazione(int anno) {
+        Query query = em.createQuery("SELECT e FROM ElementoBiblio e WHERE EXTRACT(YEAR FROM e.annoPubblicazione) = :anno");
+        query.setParameter("anno", anno);
+        return query.getResultList();
+    }
+    public List<ElementoBiblio> findByAutore(String autore) {
+        Query query = em.createQuery("SELECT e FROM ElementoBiblio e WHERE e.autore = :autore");
+        query.setParameter("autore", autore);
+        return query.getResultList();
+    }
 }
+
+
