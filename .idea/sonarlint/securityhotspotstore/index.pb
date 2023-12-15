@@ -3,8 +3,6 @@
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 `
 0src/main/java/giuliasilvestrini/Application.java,a\a\aafd108f82c7d24041a16f4c71a12effa2cca466
-c
-3src/main/java/giuliasilvestrini/ElementoBiblio.java,8\d\8d60cdae311d54e841c79355f75860e31b182dc1
 l
 <src/main/java/giuliasilvestrini/entities/ElementoBiblio.java,0\4\04d18f1a5394b13e5f7da1b5c54aacd24aca1dce
 c

@@ -9,13 +9,14 @@ import java.util.UUID;
 @Table(name = "archivio_bibliotecario")
 @DiscriminatorColumn(name = "tipo", discriminatorType = DiscriminatorType.STRING)
 public class ElementoBiblio {
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "isbn", unique = true, nullable = false)
-    private static UUID isbn;
+    private UUID isbn;
 
     @Column(name = "titolo")
-    private static String titolo;
+    private String titolo;
 
     @Column(name = "anno_pubblicazione")
     private LocalDate annoPubblicazione;
@@ -23,11 +24,14 @@ public class ElementoBiblio {
     @Column(name = "pagine")
     private int pagine;
 
-    @OneToOne
-    @JoinColumn(name = "isbn", nullable = false)
+    @OneToOne(mappedBy = "elementoBiblio", cascade = CascadeType.ALL)
     private Prestito prestito;
 
 
+    public ElementoBiblio() {
+    }
+
+    // Costruttore principale
     public ElementoBiblio(UUID isbn, String titolo, LocalDate annoPubblicazione, int pagine) {
         this.isbn = isbn;
         this.titolo = titolo;
@@ -36,11 +40,11 @@ public class ElementoBiblio {
     }
 
     // Getter e setter
-    public static UUID getIsbn() {
+    public  UUID getIsbn() {
         return isbn;
     }
 
-    public static String getTitolo() {
+    public  String getTitolo() {
         return titolo;
     }
 
@@ -64,7 +68,28 @@ public class ElementoBiblio {
         this.pagine = pagine;
     }
 
+
+
+    @Override
+    public String toString() {
+        return "ElementoBiblio{" +
+                "isbn=" + isbn +
+                ", titolo='" + titolo + '\'' +
+                ", annoPubblicazione=" + annoPubblicazione +
+                ", pagine=" + pagine +
+                ", prestito=" + prestito +
+                '}';
+    }
+
+    public void setIsbn(UUID isbn) {
+        this.isbn = isbn;
+    }
+
     public Prestito getPrestito() {
         return prestito;
+    }
+
+    public void setPrestito(Prestito prestito) {
+        this.prestito = prestito;
     }
 }

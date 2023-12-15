@@ -16,6 +16,9 @@ public class Rivista extends ElementoBiblio {
     private Periodicità periodicità;
 
 
+    public Rivista() {
+    }
+
     public Rivista(UUID isbn, String titolo, LocalDate annoPubblicazione, int pagine, Periodicità periodicità) {
         super(isbn, titolo, annoPubblicazione, pagine);
         this.periodicità = periodicità;

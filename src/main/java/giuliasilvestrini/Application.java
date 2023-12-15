@@ -1,8 +1,7 @@
 package giuliasilvestrini;
 
 import com.github.javafaker.Faker;
-import giuliasilvestrini.DAO.LibroDAO;
-import giuliasilvestrini.entities.ElementoBiblio;
+import giuliasilvestrini.DAO.ElementoBiblioDAO;
 import giuliasilvestrini.entities.Libro;
 import giuliasilvestrini.entities.Periodicità;
 import giuliasilvestrini.entities.Rivista;
@@ -26,17 +25,22 @@ public class Application {
         Random random = new Random();
         Faker faker = new Faker(Locale.ITALY);
 
-        LibroDAO libroDAO1 = new LibroDAO(em);
+        ElementoBiblioDAO elemento = new ElementoBiblioDAO(em);
 
 
-        Libro libro = new Libro(uuid, "Titolo 1", LocalDate.now(), random.nextInt(), "Autore 1", "Genere 1");
-        Rivista rivista = new Rivista(uuid, "Rivista 1", LocalDate.of(2000, 3, 3), random.nextInt(), Periodicità.SEMESTRALE);
+        Libro libro = new Libro(uuid, faker.book().title(), LocalDate.now(), random.nextInt(1, 400), faker.book().author(), faker.book().genre());
+        Rivista rivista = new Rivista(uuid, faker.book().title(), LocalDate.of(2000, random.nextInt(1, 12), random.nextInt(1, 29)), random.nextInt(1, 400), Periodicità.SEMESTRALE);
+        Rivista rivista1 = new Rivista(uuid, faker.book().title(), LocalDate.of(2000, random.nextInt(1, 12), random.nextInt(1, 29)), random.nextInt(1, 400), Periodicità.MENSILE);
+        Libro libro1 = new Libro(uuid, faker.book().title(), LocalDate.now(), random.nextInt(1, 400), faker.book().author(), faker.book().genre());
 
+//        elemento.save(libro);
+//        elemento.save(rivista);
+//        elemento.save(libro1);
+//        elemento.save(rivista1);
 
         System.out.println("Hello");
+
         em.close();
         emf.close();
     }
-
-
 }

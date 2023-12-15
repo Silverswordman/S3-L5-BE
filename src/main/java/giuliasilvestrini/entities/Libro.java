@@ -10,10 +10,15 @@ public class Libro extends ElementoBiblio {
     private String autore;
     private String genere;
 
+
+
     public Libro(UUID isbn, String titolo, LocalDate annoPubblicazione, int pagine, String autore, String genere) {
         super(isbn, titolo, annoPubblicazione, pagine);
         this.autore = autore;
         this.genere = genere;
+    }
+
+    public Libro() {
     }
 
 

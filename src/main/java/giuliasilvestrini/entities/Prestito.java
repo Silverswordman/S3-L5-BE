@@ -14,8 +14,8 @@ public class Prestito {
     private Utente utente;
 
     @OneToOne
-    @JoinColumn(name = "isbn_elemento", nullable = false)
-    private ElementoBiblio elementobiblio;
+    @JoinColumn(name = "isbn", nullable = false)
+    private ElementoBiblio elementoBiblio;
 
     @Column(name = "data_inizio_prestito", nullable = false)
     private LocalDate datainizioprestito;
@@ -34,7 +34,7 @@ public class Prestito {
 
 
     public ElementoBiblio getElementobiblio() {
-        return elementobiblio;
+        return elementoBiblio;
     }
 
 
